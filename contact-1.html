@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — WE ARE.</title>
+<meta name="description" content="Get in touch with WE ARE. — reach out, share your story, or start a conversation about a project or community initiative.">
+
+<style>
+  :root{
+    --bg: #FAF8F5;
+    --surface: #FFFFFF;
+    --surface-tint: #F3ECE6;
+    --text: #1B1B1A;
+    --text-soft: #4A4846;
+    --muted: #8A8683;
+    --border: #E7E1DA;
+    --accent: #B5583A;
+    --accent-dark: #8F4229;
+    --accent-tint: #F2E3DB;
+    --radius: 14px;
+    --max-width: 1180px;
+    --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  img, svg{ display: block; max-width: 100%; }
+
+  .wrap{
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site-header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 248, 245, 0.88);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 32px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .logo{
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text);
+  }
+
+  .logo span{ color: var(--accent); }
+
+  nav.primary-nav ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav.primary-nav a{
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-soft);
+    position: relative;
+    padding: 6px 2px;
+    transition: color 0.25s ease;
+  }
+
+  nav.primary-nav a:hover{ color: var(--text); }
+
+  nav.primary-nav a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  nav.primary-nav a:hover::after{ width: 100%; }
+
+  nav.primary-nav a[aria-current="page"]{ color: var(--text); }
+
+  nav.primary-nav a[aria-current="page"]::after{ width: 100%; }
+
+  .menu-toggle{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .menu-toggle span{
+    display: block;
+    height: 1.5px;
+    width: 100%;
+    background: var(--text);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .menu-toggle.open span:nth-child(1){ transform: translateY(6.5px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2){ opacity: 0; }
+  .menu-toggle.open span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position: relative;
+    padding: 96px 0 72px;
+    overflow: hidden;
+  }
+
+  .hero-accent{
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 380px;
+    height: 380px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--accent-tint), transparent 70%);
+    z-index: 0;
+  }
+
+  .hero .wrap{ position: relative; z-index: 1; }
+
+  .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    font-weight: 600;
+    margin-bottom: 22px;
+  }
+
+  .eyebrow::before{
+    content: "";
+    width: 22px;
+    height: 1.5px;
+    background: var(--accent);
+  }
+
+  h1.hero-title{
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.12;
+    letter-spacing: -0.5px;
+    max-width: 720px;
+    margin: 0 0 24px;
+  }
+
+  .hero-lede{
+    font-size: 18px;
+    color: var(--text-soft);
+    max-width: 560px;
+    margin: 0;
+  }
+
+  .tagline-strip{
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-soft);
+  }
+
+  .tagline-strip span{ color: var(--accent-dark); }
+
+  /* ---------- Contact Section ---------- */
+  .contact-section{
+    padding: 20px 0 100px;
+  }
+
+  .contact-grid{
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .contact-intro h2{
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(28px, 3.2vw, 36px);
+    margin: 0 0 18px;
+    letter-spacing: -0.3px;
+  }
+
+  .contact-intro p{
+    color: var(--text-soft);
+    font-size: 16px;
+    max-width: 420px;
+    margin: 0 0 32px;
+  }
+
+  .contact-detail-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-detail-list li{
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-detail-list li:last-child{
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .detail-icon{
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--accent-tint);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-dark);
+  }
+
+  .detail-label{
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin: 0 0 4px;
+  }
+
+  .detail-value{
+    font-size: 15.5px;
+    color: var(--text);
+    font-weight: 500;
+    margin: 0;
+  }
+
+  /* ---------- Form ---------- */
+  .contact-form-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 44px;
+    box-shadow: 0 24px 60px -32px rgba(27, 27, 26, 0.18);
+  }
+
+  .form-row{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .field{
+    margin-bottom: 22px;
+  }
+
+  .field label{
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .field input,
+  .field textarea{
+    width: 100%;
+    padding: 13px 15px;
+    font-size: 15px;
+    font-family: var(--font-sans);
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .field textarea{
+    resize: vertical;
+    min-height: 140px;
+  }
+
+  .field input:focus,
+  .field textarea:focus{
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-tint);
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder{
+    color: var(--muted);
+  }
+
+  .submit-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #FFFFFF;
+    border: none;
+    padding: 15px 30px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .submit-btn:hover{
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+  }
+
+  .form-note{
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  /* ---------- Community / Project Inquiries ---------- */
+  .inquiries-section{
+    padding: 90px 0;
+    background: var(--surface-tint);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .inquiries-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .inquiries-copy .eyebrow{ margin-bottom: 18px; }
+
+  .inquiries-copy h2{
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(26px, 3vw, 34px);
+    margin: 0 0 18px;
+    letter-spacing: -0.3px;
+  }
+
+  .inquiries-copy p{
+    color: var(--text-soft);
+    font-size: 16px;
+    max-width: 480px;
+    margin: 0 0 28px;
+  }
+
+  .inquiries-actions{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    border: 1.5px solid var(--text);
+    border-radius: 9px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text);
+    background: transparent;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .btn-outline:hover{
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  .inquiries-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px;
+  }
+
+  .inquiries-card ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .inquiries-card li{
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .bullet-number{
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--accent);
+    flex-shrink: 0;
+    width: 28px;
+  }
+
+  .inquiries-card h3{
+    margin: 0 0 4px;
+    font-size: 15.5px;
+    font-weight: 600;
+  }
+
+  .inquiries-card p{
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--text-soft);
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    padding: 64px 0 32px;
+    background: var(--bg);
+  }
+
+  .footer-top{
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .footer-brand .logo{ margin-bottom: 14px; }
+
+  .footer-tagline{
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-soft);
+    font-size: 15.5px;
+    max-width: 280px;
+  }
+
+  .footer-col h4{
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+
+  .footer-col ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-col a{
+    font-size: 15px;
+    color: var(--text-soft);
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover{ color: var(--accent-dark); }
+
+  .footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-bottom p{
+    font-size: 13.5px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 960px){
+    .contact-grid,
+    .inquiries-grid{
+      grid-template-columns: 1fr;
+    }
+
+    .inquiries-grid{ gap: 40px; }
+
+    .footer-top{
+      grid-template-columns: 1fr 1fr;
+      row-gap: 36px;
+    }
+
+    .footer-brand{ grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 768px){
+    .nav-inner{ padding: 18px 24px; }
+
+    nav.primary-nav{
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    nav.primary-nav.open{ max-height: 300px; }
+
+    nav.primary-nav ul{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 8px 24px 20px;
+    }
+
+    nav.primary-nav ul li{
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav.primary-nav ul li:last-child{ border-bottom: none; }
+
+    nav.primary-nav a{
+      display: block;
+      padding: 16px 2px;
+    }
+
+    .menu-toggle{ display: flex; }
+
+    .hero{ padding: 64px 0 48px; }
+
+    .contact-form-card{ padding: 28px; }
+
+    .form-row{ grid-template-columns: 1fr; gap: 0; }
+  }
+
+  @media (max-width: 540px){
+    .wrap{ padding: 0 20px; }
+
+    .nav-inner{ padding: 16px 20px; }
+
+    .footer-top{ grid-template-columns: 1fr; }
+
+    .footer-bottom{ flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">WE ARE<span>.</span></a>
+
+    <nav class="primary-nav" id="primaryNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-accent" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h1 class="hero-title">Let's start a conversation.</h1>
+      <p class="hero-lede">Whether you have a question, a story to share, or an idea worth building together — we're listening. Reach out below and we'll get back to you personally.</p>
+
+      <p class="tagline-strip">"You were never <span>the only one.</span>"</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section" id="contact">
+    <div class="wrap">
+      <div class="contact-grid">
+
+        <div class="contact-intro">
+          <h2>Get in touch</h2>
+          <p>We read every message that comes through. Tell us a little about what's on your mind, and someone from our team will respond as soon as we can.</p>
+
+          <ul class="contact-detail-list">
+            <li>
+              <span class="detail-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><rect x="2" y="4" width="20" height="16" rx="2"/></svg>
+              </span>
+              <div>
+                <p class="detail-label">Email</p>
+                <p class="detail-value">hello@wearecommunity.com</p>
+              </div>
+            </li>
+            <li>
+              <span class="detail-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div>
+                <p class="detail-label">Based in</p>
+                <p class="detail-value">Remote-first, worldwide</p>
+              </div>
+            </li>
+            <li>
+              <span class="detail-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </span>
+              <div>
+                <p class="detail-label">Response time</p>
+                <p class="detail-value">Within 1–2 business days</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contact-form-card">
+          <form id="contactForm" action="#" method="POST" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Share as much or as little as you'd like..." required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Send Message
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            </button>
+
+            <p class="form-note">We respect your privacy. Your information is never shared.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Project / Community Inquiries -->
+  <section class="inquiries-section" id="inquiries">
+    <div class="wrap">
+      <div class="inquiries-grid">
+
+        <div class="inquiries-copy">
+          <p class="eyebrow">Collaborate with us</p>
+          <h2>Project &amp; community inquiries</h2>
+          <p>Building a program, partnership, or initiative that aligns with what WE ARE. stands for? We're always open to meaningful collaborations — from grassroots community projects to larger partnerships.</p>
+          <div class="inquiries-actions">
+            <a href="mailto:partnerships@wearecommunity.com" class="btn-outline">
+              Email our partnerships team
+            </a>
+          </div>
+        </div>
+
+        <div class="inquiries-card">
+          <ul>
+            <li>
+              <span class="bullet-number">01</span>
+              <div>
+                <h3>Community programs</h3>
+                <p>Partner with us on initiatives that bring people together and foster belonging.</p>
+              </div>
+            </li>
+            <li>
+              <span class="bullet-number">02</span>
+              <div>
+                <h3>Collaborations &amp; partnerships</h3>
+                <p>Organizations and creators aligned with our mission are always welcome to reach out.</p>
+              </div>
+            </li>
+            <li>
+              <span class="bullet-number">03</span>
+              <div>
+                <h3>Press &amp; media</h3>
+                <p>For interviews, features, or press inquiries, include your outlet and deadline.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">WE ARE<span>.</span></a>
+        <p class="footer-tagline">"You were never the only one."</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:hello@wearecommunity.com">hello@wearecommunity.com</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 WE ARE. All rights reserved.</p>
+      <p>Made with care, together.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('primaryNav');
+
+    toggle.addEventListener('click', function(){
+      var isOpen = nav.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    nav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        nav.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    var form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      // Backend hook: replace this with a fetch()/XHR call to your API endpoint.
+      // Example: fetch('/api/contact', { method: 'POST', body: new FormData(form) })
+      form.reset();
+      alert('Thank you — your message has been received.');
+    });
+  })();
+</script>
+
+</body>
+</html>
