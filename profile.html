@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile — WE ARE.</title>
+<meta name="description" content="A member profile on WE ARE. — meaningful connections, shared interests, and honest conversation.">
+
+<style>
+  :root{
+    --bg: #FAF8F5;
+    --surface: #FFFFFF;
+    --surface-tint: #F3ECE6;
+    --text: #1B1B1A;
+    --text-soft: #4A4846;
+    --muted: #8A8683;
+    --border: #E7E1DA;
+    --accent: #B5583A;
+    --accent-dark: #8F4229;
+    --accent-tint: #F2E3DB;
+    --success: #4F7A5A;
+    --radius: 14px;
+    --max-width: 1180px;
+    --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  img, svg{ display: block; max-width: 100%; }
+
+  button{ font-family: inherit; }
+
+  .wrap{
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Header ---------- */
+  header.site-header{
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 248, 245, 0.88);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 32px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .logo{
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text);
+  }
+
+  .logo span{ color: var(--accent); }
+
+  nav.primary-nav ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav.primary-nav a{
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-soft);
+    position: relative;
+    padding: 6px 2px;
+    transition: color 0.25s ease;
+  }
+
+  nav.primary-nav a:hover{ color: var(--text); }
+
+  nav.primary-nav a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  nav.primary-nav a:hover::after{ width: 100%; }
+
+  nav.primary-nav a[aria-current="page"]{ color: var(--text); }
+  nav.primary-nav a[aria-current="page"]::after{ width: 100%; }
+
+  .nav-cta{
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 22px;
+    background: var(--accent);
+    color: #FFFFFF;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.25s ease, transform 0.2s ease;
+  }
+
+  .nav-cta:hover{
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+  }
+
+  .nav-right{
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .menu-toggle{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 34px;
+    height: 34px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .menu-toggle span{
+    display: block;
+    height: 1.5px;
+    width: 100%;
+    background: var(--text);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .menu-toggle.open span:nth-child(1){ transform: translateY(6.5px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2){ opacity: 0; }
+  .menu-toggle.open span:nth-child(3){ transform: translateY(-6.5px) rotate(-45deg); }
+
+  /* ---------- Breadcrumb ---------- */
+  .breadcrumb-bar{
+    padding: 20px 0 0;
+  }
+
+  .breadcrumb-bar .wrap{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  .breadcrumb-bar a{ color: var(--text-soft); transition: color 0.2s ease; }
+  .breadcrumb-bar a:hover{ color: var(--accent-dark); }
+
+  /* ---------- Profile Header ---------- */
+  .profile-header{
+    padding: 36px 0 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .profile-header-accent{
+    position: absolute;
+    top: -160px;
+    right: -140px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--accent-tint), transparent 70%);
+    z-index: 0;
+  }
+
+  .profile-header .wrap{ position: relative; z-index: 1; }
+
+  .profile-card-main{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 44px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 36px;
+    align-items: flex-start;
+  }
+
+  .profile-avatar-wrap{
+    position: relative;
+    width: 132px;
+    height: 132px;
+    flex-shrink: 0;
+  }
+
+  .profile-avatar-large{
+    width: 132px;
+    height: 132px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-tint), var(--surface-tint));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-dark);
+    font-family: var(--font-serif);
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  .status-indicator{
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--success);
+    border: 3px solid var(--surface);
+  }
+
+  .status-indicator.offline{ background: var(--muted); }
+
+  .profile-identity h1{
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(26px, 3vw, 32px);
+    margin: 0 0 4px;
+    letter-spacing: -0.3px;
+  }
+
+  .profile-username{
+    font-size: 15px;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+
+  .profile-status-label{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--success);
+    margin-bottom: 18px;
+  }
+
+  .profile-status-label .dot{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--success);
+  }
+
+  .profile-bio-short{
+    font-size: 15.5px;
+    color: var(--text-soft);
+    max-width: 520px;
+    margin: 0 0 18px;
+  }
+
+  .profile-meta-row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+
+  .profile-meta-item{
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+    color: var(--text-soft);
+  }
+
+  .profile-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag{
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: var(--surface-tint);
+    color: var(--accent-dark);
+  }
+
+  .profile-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 180px;
+  }
+
+  .btn-primary{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #FFFFFF;
+    border: none;
+    padding: 13px 22px;
+    font-size: 14.5px;
+    font-weight: 600;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+  }
+
+  .btn-primary:hover{
+    background: var(--accent-dark);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--text);
+    padding: 12px 22px;
+    font-size: 14.5px;
+    font-weight: 600;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .btn-secondary:hover{
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  .report-action{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 4px;
+    transition: color 0.2s ease;
+  }
+
+  .report-action:hover{ color: var(--accent-dark); }
+
+  /* ---------- Stats ---------- */
+  .stats-row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .stat-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 20px;
+    text-align: center;
+  }
+
+  .stat-number{
+    font-family: var(--font-serif);
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 4px;
+  }
+
+  .stat-label{
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ---------- Content Layout ---------- */
+  .profile-content{
+    padding: 20px 0 100px;
+  }
+
+  .content-grid{
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 32px;
+    align-items: start;
+  }
+
+  .info-section{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 34px 36px;
+    margin-bottom: 24px;
+  }
+
+  .info-section h2{
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 21px;
+    margin: 0 0 16px;
+    letter-spacing: -0.2px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .info-section h2 .section-icon{
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: var(--accent-tint);
+    color: var(--accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .info-section p{
+    font-size: 15px;
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  .interest-pills{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .interest-pills .tag{ font-size: 13px; padding: 8px 16px; }
+
+  .trait-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .trait-item{
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+
+  .trait-item h4{
+    margin: 0 0 4px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--accent-dark);
+  }
+
+  .trait-item p{
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--text-soft);
+  }
+
+  .idea-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .idea-item{
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .idea-item:last-child{ border-bottom: none; padding-bottom: 0; }
+
+  .idea-item h4{
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .idea-item p{
+    margin: 0;
+    font-size: 14.5px;
+    color: var(--text-soft);
+  }
+
+  .idea-date{
+    font-size: 12.5px;
+    color: var(--muted);
+    margin-top: 8px;
+    display: block;
+  }
+
+  .photo-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .photo-placeholder{
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--surface-tint), var(--accent-tint));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-dark);
+  }
+
+  .connections-preview-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .connection-mini{
+    text-align: center;
+  }
+
+  .connection-mini-avatar{
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-tint), var(--surface-tint));
+    color: var(--accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0 auto 8px;
+  }
+
+  .connection-mini p{
+    margin: 0;
+    font-size: 12.5px;
+    color: var(--text-soft);
+  }
+
+  .see-all-link{
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--accent-dark);
+    border-bottom: 1.5px solid var(--accent-tint);
+    padding-bottom: 2px;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+
+  .sidebar-card h3{
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 17px;
+    margin: 0 0 16px;
+  }
+
+  .tagline-box{
+    background: var(--surface-tint);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .tagline-box p{
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  .tagline-box span{ color: var(--accent-dark); }
+
+  .safety-note{
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .safety-note .detail-icon{
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: var(--accent-tint);
+    color: var(--accent-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .safety-note p{
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--text-soft);
+  }
+
+  .safety-note a{
+    font-weight: 600;
+    color: var(--accent-dark);
+  }
+
+  /* ---------- Similar Interests ---------- */
+  .similar-section{
+    padding: 20px 0 100px;
+    background: var(--surface-tint);
+    border-top: 1px solid var(--border);
+  }
+
+  .similar-section-inner{ padding-top: 80px; }
+
+  .section-heading{
+    max-width: 600px;
+    margin: 0 0 40px;
+  }
+
+  .section-heading h2{
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: clamp(26px, 3.2vw, 32px);
+    margin: 0 0 14px;
+    letter-spacing: -0.3px;
+  }
+
+  .section-heading p{
+    color: var(--text-soft);
+    font-size: 15.5px;
+    margin: 0;
+  }
+
+  .profile-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+  }
+
+  .profile-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .profile-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -26px rgba(27, 27, 26, 0.25);
+  }
+
+  .profile-avatar{
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-tint), var(--surface-tint));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-dark);
+    margin-bottom: 18px;
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .profile-card h3{
+    font-size: 16.5px;
+    font-weight: 600;
+    margin: 0 0 4px;
+  }
+
+  .profile-role{
+    font-size: 13px;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+
+  .profile-bio{
+    font-size: 14px;
+    color: var(--text-soft);
+    margin: 0 0 18px;
+    min-height: 42px;
+  }
+
+  .profile-card .profile-tags{
+    justify-content: center;
+    margin-bottom: 22px;
+  }
+
+  .view-profile-btn{
+    width: 100%;
+    padding: 11px 0;
+    border-radius: 9px;
+    border: 1.5px solid var(--text);
+    background: transparent;
+    color: var(--text);
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .view-profile-btn:hover{
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  /* ---------- Footer ---------- */
+  footer.site-footer{
+    padding: 64px 0 32px;
+    background: var(--bg);
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-top{
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .footer-brand .logo{ margin-bottom: 14px; }
+
+  .footer-tagline{
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-soft);
+    font-size: 15.5px;
+    max-width: 280px;
+  }
+
+  .footer-col h4{
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+
+  .footer-col ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-col a{
+    font-size: 15px;
+    color: var(--text-soft);
+    transition: color 0.2s ease;
+  }
+
+  .footer-col a:hover{ color: var(--accent-dark); }
+
+  .footer-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 28px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-bottom p{
+    font-size: 13.5px;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px){
+    .content-grid{ grid-template-columns: 1fr; }
+    .profile-grid{ grid-template-columns: repeat(2, 1fr); }
+    .connections-preview-grid{ grid-template-columns: repeat(4, 1fr); }
+  }
+
+  @media (max-width: 860px){
+    .profile-card-main{
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      padding: 32px 24px;
+    }
+
+    .profile-meta-row{ justify-content: center; }
+    .profile-tags{ justify-content: center; }
+    .profile-actions{ width: 100%; max-width: 280px; }
+
+    .stats-row{ grid-template-columns: repeat(3, 1fr); }
+
+    .footer-top{
+      grid-template-columns: 1fr 1fr;
+      row-gap: 36px;
+    }
+
+    .footer-brand{ grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 768px){
+    .nav-inner{ padding: 18px 24px; }
+    .nav-cta{ display: none; }
+
+    nav.primary-nav{
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+      z-index: 99;
+    }
+
+    nav.primary-nav.open{ max-height: 340px; }
+
+    nav.primary-nav ul{
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 8px 24px 20px;
+    }
+
+    nav.primary-nav ul li{
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav.primary-nav ul li:last-child{ border-bottom: none; }
+
+    nav.primary-nav a{
+      display: block;
+      padding: 16px 2px;
+    }
+
+    .menu-toggle{ display: flex; }
+
+    .info-section{ padding: 26px 22px; }
+
+    .trait-grid{ grid-template-columns: 1fr; }
+    .photo-grid{ grid-template-columns: repeat(2, 1fr); }
+    .profile-grid{ grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 540px){
+    .wrap{ padding: 0 20px; }
+    .nav-inner{ padding: 16px 20px; }
+
+    .stats-row{ grid-template-columns: 1fr; }
+    .connections-preview-grid{ grid-template-columns: repeat(2, 1fr); }
+
+    .footer-top{ grid-template-columns: 1fr; }
+    .footer-bottom{ flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">WE ARE<span>.</span></a>
+
+    <nav class="primary-nav" id="primaryNav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-right">
+      <a href="community.html#join" class="nav-cta">Join WE ARE.</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primaryNav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb-bar" aria-label="Breadcrumb">
+  <div class="wrap">
+    <a href="community.html">Community</a>
+    <span aria-hidden="true">/</span>
+    <span id="breadcrumbName">Profile</span>
+  </div>
+</nav>
+
+<main id="profile-page" data-profile-id="placeholder-profile-001">
+
+  <!-- Profile Header -->
+  <section class="profile-header" id="profile-header">
+    <div class="profile-header-accent" aria-hidden="true"></div>
+    <div class="wrap">
+
+      <div class="profile-card-main">
+
+        <div class="profile-avatar-wrap">
+          <div class="profile-avatar-large" id="profile-avatar" aria-hidden="true">A</div>
+          <span class="status-indicator" id="profile-status-indicator" aria-hidden="true"></span>
+        </div>
+
+        <div class="profile-identity">
+          <h1 id="profile-name">Alex Rivera</h1>
+          <p class="profile-username" id="profile-username">@alexrivera</p>
+
+          <p class="profile-status-label" id="profile-status-label">
+            <span class="dot" aria-hidden="true"></span>
+            Active now
+          </p>
+
+          <p class="profile-bio-short" id="profile-bio-short">
+            Product designer who thinks in systems and stories. Here for honest conversations about design, technology, and the ideas in between.
+          </p>
+
+          <div class="profile-meta-row">
+            <span class="profile-meta-item" id="profile-location">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Lisbon, Portugal
+            </span>
+            <span class="profile-meta-item" id="profile-joined">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Member since 2025
+            </span>
+          </div>
+
+          <div class="profile-tags" id="profile-interests-tags">
+            <span class="tag">Design</span>
+            <span class="tag">Technology</span>
+            <span class="tag">Ideas &amp; Learning</span>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <button class="btn-primary" type="button" id="connect-btn" data-action="connect">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Connect
+          </button>
+          <button class="btn-secondary" type="button" id="message-btn" data-action="message">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Message
+          </button>
+          <button class="report-action" type="button" id="report-btn" data-action="report-profile">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Report profile
+          </button>
+        </div>
+
+      </div>
+
+      <div class="stats-row" id="profile-stats">
+        <div class="stat-card">
+          <p class="stat-number" id="stat-connections">248</p>
+          <p class="stat-label">Connections</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-number" id="stat-posts">37</p>
+          <p class="stat-label">Posts</p>
+        </div>
+        <div class="stat-card">
+          <p class="stat-number" id="stat-interests">12</p>
+          <p class="stat-label">Interests</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="profile-content">
+    <div class="wrap">
+      <div class="content-grid">
+
+        <div class="content-main">
+
+          <!-- About -->
+          <article class="info-section" id="section-about">
+            <h2>
+              <span class="section-icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              </span>
+              About
+            </h2>
+            <p id="about-text">
+              I've spent the last several years designing products that try to make complicated things feel simple. Outside of work, I'm usually reading about design history, sketching ideas that may never ship, or exploring a new neighborhood on foot. I joined WE ARE. looking for people who think out loud the way I do.
+            </p>
+          </article>
+
+          <!-- Interests -->
+          <article class="info-section" id="section-interests">
+            <h2>
+              <span class="section-icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              </span>
+              Interests
+            </h2>
+            <div class="interest-pills" id="interests-list">
+              <span class="tag">Product Design</span>
+              <span class="tag">Typography</span>
+              <span class="tag">Urban Sketching</span>
+              <span class="tag">Technology</span>
+              <span class="tag">Design History</span>
+              <span class="tag">Walking Cities</span>
+            </div>
+          </article>
+
+          <!-- Personality -->
+          <article class="info-section" id="section-personality">
+            <h2>
+              <span class="section-icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a8 8 0 0 1 16 0v1"/></svg>
+              </span>
+              Personality
+            </h2>
+            <div class="trait-grid" id="personality-traits">
+              <div class="trait-item">
+                <h4>Communication style</h4>
+                <p>Thoughtful and direct — prefers depth over small talk.</p>
+              </div>
+              <div class="trait-item">
+                <h4>Energy</h4>
+                <p>Calm, steady, and reflective.</p>
+              </div>
+              <div class="trait-item">
+                <h4>Curiosity</h4>
+                <p>Always exploring a new question or side project.</p>
+              </div>
+              <div class="trait-item">
+                <h4>Values</h4>
+                <p>Honesty, craft, and quiet consistency.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Thinking & Ideas -->
+          <article class="info-section" id="section-thinking-ideas">
+            <h2>
+              <span class="section-icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>
+              </span>
+              Thinking &amp; Ideas
+            </h2>
+            <ul class="idea-list" id="ideas-list">
+              <li class="idea-item">
+                <h4>On designing for trust</h4>
+                <p>Some thoughts on why the smallest interface details often carry the most weight in how safe a product feels.</p>
+                <span class="idea-date">Shared 2 weeks ago</span>
+              </li>
+              <li class="idea-item">
+                <h4>What old maps taught me about UX</h4>
+                <p>A short reflection on legibility, hierarchy, and how cartographers solved information design centuries early.</p>
+                <span class="idea-date">Shared last month</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Photos -->
+          <article class="info-section" id="section-photos">
+            <h2>
+              <span class="section-icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              </span>
+              Photos
+            </h2>
+            <div class="photo-grid" id="photos-grid">
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              </div>
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              </div>
+              <div class="photo-placeholder" aria-hidden="true">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+              </div>
+            </div>
+          </article>
+
+          <!-- Connections -->
+          <article class="info-section" id="section-connections">
+            <h2>
+              <span class="section-icon" aria-hidden="true">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </span>
+              Connections
+            </h2>
+            <div class="connections-preview-grid" id="connections-preview">
+              <div class="connection-mini">
+                <div class="connection-mini-avatar" aria-hidden="true">J</div>
+                <p>Jordan Lee</p>
+              </div>
+              <div class="connection-mini">
+                <div class="connection-mini-avatar" aria-hidden="true">S</div>
+                <p>Sam Okafor</p>
+              </div>
+              <div class="connection-mini">
+                <div class="connection-mini-avatar" aria-hidden="true">M</div>
+                <p>Maya Chen</p>
+              </div>
+              <div class="connection-mini">
+                <div class="connection-mini-avatar" aria-hidden="true">R</div>
+                <p>Riya Patel</p>
+              </div>
+            </div>
+            <a href="#" class="see-all-link" id="see-all-connections">See all connections →</a>
+          </article>
+
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="content-sidebar">
+          <div class="sidebar-card tagline-box" id="sidebar-tagline">
+            <p>"You were never <span>the only one.</span>"</p>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Community guidelines</h3>
+            <div class="safety-note">
+              <span class="detail-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
+              <p>WE ARE. is built for respectful, meaningful connection. If something about this profile feels off, please <a href="contact.html">let us know</a>.</p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- People with similar interests -->
+  <section class="similar-section" id="similar-interests">
+    <div class="wrap similar-section-inner">
+      <div class="section-heading">
+        <h2>People with similar interests</h2>
+        <p>Other members exploring design, technology, and ideas worth thinking about.</p>
+      </div>
+
+      <div class="profile-grid" id="similar-profiles-grid">
+        <article class="profile-card" data-profile-id="placeholder-2">
+          <div class="profile-avatar" aria-hidden="true">J</div>
+          <h3 class="profile-name">Jordan Lee</h3>
+          <p class="profile-role">Illustrator</p>
+          <p class="profile-bio">Draws small worlds. Currently deep into folklore-inspired characters.</p>
+          <div class="profile-tags">
+            <span class="tag">Creators</span>
+            <span class="tag">Culture</span>
+          </div>
+          <button class="view-profile-btn" type="button" data-action="view-profile">View Profile</button>
+        </article>
+
+        <article class="profile-card" data-profile-id="placeholder-3">
+          <div class="profile-avatar" aria-hidden="true">S</div>
+          <h3 class="profile-name">Sam Okafor</h3>
+          <p class="profile-role">Computer Science Student</p>
+          <p class="profile-bio">Building side projects and looking for study partners who overthink too.</p>
+          <div class="profile-tags">
+            <span class="tag">Students</span>
+            <span class="tag">Technology</span>
+          </div>
+          <button class="view-profile-btn" type="button" data-action="view-profile">View Profile</button>
+        </article>
+
+        <article class="profile-card" data-profile-id="placeholder-4">
+          <div class="profile-avatar" aria-hidden="true">M</div>
+          <h3 class="profile-name">Maya Chen</h3>
+          <p class="profile-role">Style Writer</p>
+          <p class="profile-bio">Thinks fashion is a language. Always hunting for the story behind an outfit.</p>
+          <div class="profile-tags">
+            <span class="tag">Fashion</span>
+            <span class="tag">Ideas</span>
+          </div>
+          <button class="view-profile-btn" type="button" data-action="view-profile">View Profile</button>
+        </article>
+
+        <article class="profile-card" data-profile-id="placeholder-5">
+          <div class="profile-avatar" aria-hidden="true">R</div>
+          <h3 class="profile-name">Riya Patel</h3>
+          <p class="profile-role">Researcher</p>
+          <p class="profile-bio">Reads about mythology on weekends and writes about it during the week.</p>
+          <div class="profile-tags">
+            <span class="tag">Culture &amp; Mythology</span>
+            <span class="tag">Ideas</span>
+          </div>
+          <button class="view-profile-btn" type="button" data-action="view-profile">View Profile</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">WE ARE<span>.</span></a>
+        <p class="footer-tagline">"You were never the only one."</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:hello@wearecommunity.com">hello@wearecommunity.com</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 WE ARE. All rights reserved.</p>
+      <p>Made with care, together.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('primaryNav');
+
+    toggle.addEventListener('click', function(){
+      var isOpen = nav.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+    });
+
+    nav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        nav.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Breadcrumb label — sync with profile name once loaded from backend.
+    var breadcrumbName = document.getElementById('breadcrumbName');
+    var profileName = document.getElementById('profile-name');
+    if (breadcrumbName && profileName){
+      breadcrumbName.textContent = profileName.textContent.trim();
+    }
+
+    // Connect button — currently a placeholder.
+    // Backend hook: POST a connection request for the current profile id.
+    document.getElementById('connect-btn').addEventListener('click', function(){
+      var id = document.getElementById('profile-page').getAttribute('data-profile-id');
+      // TODO: fetch('/api/connections', { method: 'POST', body: JSON.stringify({ targetId: id }) })
+      console.log('Connect requested for:', id);
+    });
+
+    // Message button — currently a placeholder.
+    // Backend hook: open a conversation thread with this profile id.
+    document.getElementById('message-btn').addEventListener('click', function(){
+      var id = document.getElementById('profile-page').getAttribute('data-profile-id');
+      // TODO: window.location.href = '/messages/' + id;
+      console.log('Message requested for:', id);
+    });
+
+    // Report profile — currently a placeholder.
+    // Backend hook: submit a report referencing this profile id.
+    document.getElementById('report-btn').addEventListener('click', function(){
+      var id = document.getElementById('profile-page').getAttribute('data-profile-id');
+      // TODO: fetch('/api/reports', { method: 'POST', body: JSON.stringify({ profileId: id }) })
+      alert('Thank you — this profile has been flagged for review.');
+      console.log('Report submitted for:', id);
+    });
+
+    // "View Profile" buttons in similar-interests grid — currently placeholders.
+    document.querySelectorAll('[data-action="view-profile"]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var card = btn.closest('.profile-card');
+        var id = card ? card.getAttribute('data-profile-id') : null;
+        // TODO: window.location.href = 'profile.html?id=' + id;
+        console.log('View profile requested for:', id);
+      });
+    });
+
+    // See all connections — currently a placeholder.
+    document.getElementById('see-all-connections').addEventListener('click', function(e){
+      e.preventDefault();
+      // TODO: window.location.href = 'connections.html?profile=' + document.getElementById('profile-page').getAttribute('data-profile-id');
+      console.log('See all connections requested.');
+    });
+  })();
+</script>
+
+</body>
+</html>
