@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversation | WE ARE.</title>
+  <meta name="description" content="Conversation - WE ARE.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-conversation">
+
+  <header class="site-header app-header">
+    <div class="logo-container">
+      <a href="index.html">WE ARE.</a>
+    </div>
+    <nav class="main-navigation app-navigation">
+      <ul class="nav-list">
+        <li><a href="feed.html">Feed</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="connection.html">Connections</a></li>
+        <li><a href="message.html" class="active">Messages</a></li>
+        <li><a href="notification.html">Notifications</a></li>
+        <li><a href="create-post.html">Create Post</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="notification.html" class="notifications-link">Notifications</a>
+      <a href="profile.html" class="profile-link">My Profile</a>
+      <a href="settings.html" class="settings-link">Settings</a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="conversation-header content-section">
+      <a href="message.html" class="back-link">Back to Messages</a>
+      <div class="profile-photo-placeholder" aria-label="Profile photo placeholder"></div>
+      <a href="profile.html" class="conversation-title">Username</a>
+    </section>
+
+    <section class="message-area content-section" id="message-area">
+      <div class="message-bubble message-received">
+        <p class="message-text">Placeholder received message.</p>
+      </div>
+      <div class="message-bubble message-sent">
+        <p class="message-text">Placeholder sent message.</p>
+      </div>
+      <div class="message-bubble message-received">
+        <p class="message-text">Placeholder received message.</p>
+      </div>
+    </section>
+
+    <section class="message-input-section content-section">
+      <form class="message-input-form" id="message-input-form">
+        <label for="message-input" class="visually-hidden">Type a message</label>
+        <input type="text" id="message-input" name="message" placeholder="Type a message">
+        <button type="submit" class="send-button cta-button cta-primary">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer app-footer">
+    <p class="footer-tagline">WE ARE. &mdash; You were never the only one.</p>
+    <nav class="footer-navigation">
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="guidelines.html">Guidelines</a></li>
+        <li><a href="report.html">Report a Problem</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

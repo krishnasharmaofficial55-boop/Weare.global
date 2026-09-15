@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post | WE ARE.</title>
+  <meta name="description" content="Post - WE ARE.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-post">
+
+  <header class="site-header app-header">
+    <div class="logo-container">
+      <a href="index.html">WE ARE.</a>
+    </div>
+    <nav class="main-navigation app-navigation">
+      <ul class="nav-list">
+        <li><a href="feed.html" class="active">Feed</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="connection.html">Connections</a></li>
+        <li><a href="message.html">Messages</a></li>
+        <li><a href="notification.html">Notifications</a></li>
+        <li><a href="create-post.html">Create Post</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="notification.html" class="notifications-link">Notifications</a>
+      <a href="profile.html" class="profile-link">My Profile</a>
+      <a href="settings.html" class="settings-link">Settings</a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="post-detail-section content-section">
+      <article class="post-card">
+        <header class="post-card-header">
+          <div class="profile-photo-placeholder" aria-label="Profile photo placeholder"></div>
+          <a href="profile.html" class="post-author">Username</a>
+        </header>
+        <div class="post-card-body">
+          <p class="post-text">Placeholder full post content.</p>
+        </div>
+        <div class="post-card-actions">
+          <a href="#comments" class="post-action">Comment</a>
+          <a href="#" class="post-action">Repost</a>
+          <a href="share.html" class="post-action">Share</a>
+          <a href="report.html" class="post-action">Report</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="comments-section content-section" id="comments">
+      <h2 class="section-title">Comments</h2>
+      <div class="comments-list">
+        <article class="comment-card">
+          <a href="profile.html" class="comment-author">Username</a>
+          <p class="comment-text">Placeholder comment.</p>
+        </article>
+        <article class="comment-card">
+          <a href="profile.html" class="comment-author">Username</a>
+          <p class="comment-text">Placeholder comment.</p>
+        </article>
+      </div>
+      <form class="comment-form" id="comment-form">
+        <label for="comment-input">Add a comment</label>
+        <textarea id="comment-input" name="comment" rows="3"></textarea>
+        <button type="submit" class="cta-button cta-primary">Comment</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer app-footer">
+    <p class="footer-tagline">WE ARE. &mdash; You were never the only one.</p>
+    <nav class="footer-navigation">
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="guidelines.html">Guidelines</a></li>
+        <li><a href="report.html">Report a Problem</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

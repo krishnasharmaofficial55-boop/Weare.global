@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Post | WE ARE.</title>
+  <meta name="description" content="Create Post - WE ARE.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-create-post">
+
+  <header class="site-header app-header">
+    <div class="logo-container">
+      <a href="index.html">WE ARE.</a>
+    </div>
+    <nav class="main-navigation app-navigation">
+      <ul class="nav-list">
+        <li><a href="feed.html">Feed</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="connection.html">Connections</a></li>
+        <li><a href="message.html">Messages</a></li>
+        <li><a href="notification.html">Notifications</a></li>
+        <li><a href="create-post.html" class="active">Create Post</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="notification.html" class="notifications-link">Notifications</a>
+      <a href="profile.html" class="profile-link">My Profile</a>
+      <a href="settings.html" class="settings-link">Settings</a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="page-header content-section">
+      <h1 class="page-title">Create Post</h1>
+    </section>
+
+    <section class="create-post-form-section content-section">
+      <form class="create-post-form" id="create-post-form">
+        <div class="form-field">
+          <label for="post-content">What's on your mind?</label>
+          <textarea id="post-content" name="content" rows="6"></textarea>
+        </div>
+        <div class="form-field">
+          <label for="post-media">Add photo or video</label>
+          <input type="file" id="post-media" name="media">
+        </div>
+        <button type="submit" class="cta-button cta-primary">Post</button>
+        <a href="feed.html" class="cta-button cta-secondary">Cancel</a>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer app-footer">
+    <p class="footer-tagline">WE ARE. &mdash; You were never the only one.</p>
+    <nav class="footer-navigation">
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="guidelines.html">Guidelines</a></li>
+        <li><a href="report.html">Report a Problem</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

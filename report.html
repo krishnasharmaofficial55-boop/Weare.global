@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report | WE ARE.</title>
+  <meta name="description" content="Report - WE ARE.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-report">
+
+  <header class="site-header app-header">
+    <div class="logo-container">
+      <a href="index.html">WE ARE.</a>
+    </div>
+    <nav class="main-navigation app-navigation">
+      <ul class="nav-list">
+        <li><a href="feed.html" class="active">Feed</a></li>
+        <li><a href="discover.html">Discover</a></li>
+        <li><a href="connection.html">Connections</a></li>
+        <li><a href="message.html">Messages</a></li>
+        <li><a href="notification.html">Notifications</a></li>
+        <li><a href="create-post.html">Create Post</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <a href="notification.html" class="notifications-link">Notifications</a>
+      <a href="profile.html" class="profile-link">My Profile</a>
+      <a href="settings.html" class="settings-link">Settings</a>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <section class="page-header content-section">
+      <h1 class="page-title">Report a Concern</h1>
+      <p class="page-subtitle">Help us keep WE ARE. safe. See our <a href="guidelines.html">community guidelines</a>.</p>
+    </section>
+
+    <section class="report-form-section content-section">
+      <form class="report-form" id="report-form">
+        <div class="form-field">
+          <label for="report-reason">Reason</label>
+          <select id="report-reason" name="reason">
+            <option value="">Select a reason</option>
+            <option value="spam">Spam</option>
+            <option value="harassment">Harassment</option>
+            <option value="inappropriate">Inappropriate content</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="report-details">Details</label>
+          <textarea id="report-details" name="details" rows="5"></textarea>
+        </div>
+        <button type="submit" class="cta-button cta-primary">Submit Report</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer app-footer">
+    <p class="footer-tagline">WE ARE. &mdash; You were never the only one.</p>
+    <nav class="footer-navigation">
+      <ul class="footer-links">
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="guidelines.html">Guidelines</a></li>
+        <li><a href="report.html">Report a Problem</a></li>
+      </ul>
+    </nav>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
