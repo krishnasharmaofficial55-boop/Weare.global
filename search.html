@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search · WE ARE.</title>
+<meta name="description" content="Search people, posts, communities, topics and skills on WE ARE.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Ccircle cx='16' cy='15' r='11' fill='%231B3FCC'/%3E%3Ccircle cx='104' cy='15' r='11' fill='%232F5DFF'/%3E%3Cpath d='M16 26 L38 78 L60 42' fill='none' stroke='%231B3FCC' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M60 42 L82 78 L104 26' fill='none' stroke='%232F5DFF' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="wa">
+<a href="#main" class="skip-link">Skip to content</a>
+<header class="site-topbar">
+      <a href="home.html" class="wa-brand" style="text-decoration:none;"><svg viewBox="0 0 120 100" width="26" height="22"><circle cx="16" cy="15" r="11" fill="#1B3FCC"/><circle cx="104" cy="15" r="11" fill="#2F5DFF"/><path d="M16 26 L38 78 L60 42" fill="none" stroke="#1B3FCC" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 42 L82 78 L104 26" fill="none" stroke="#2F5DFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wordmark">WE ARE<span class="dot">.</span></span></a>
+      <div class="site-search wa-searchbar-wrap">
+        <div class="wa-searchbar">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input id="wa-search-input" type="text" placeholder="Search people, posts, communities, topics..." aria-label="Search WE ARE.">
+        </div>
+        <div class="wa-search-results" id="wa-search-results">
+          <div class="wa-search-group"><div class="wa-search-label">People</div>
+            <div class="wa-search-row"><div class="wa-avatar" style="width:26px;height:26px;font-size:10px;">SL</div><span>Sanaa Lund</span></div></div>
+          <div class="wa-search-group"><div class="wa-search-label">Communities</div>
+            <div class="wa-search-row"><span class="wa-dot-sq" style="background:#1B3FCC;"></span><span>Indie Hardware</span></div></div>
+          <div class="wa-search-group"><div class="wa-search-label">Topics</div>
+            <div class="wa-search-row"><span class="wa-dot-sq" style="background:var(--blue-tint);"></span><span>#soil-sensors</span></div></div>
+        </div>
+      </div>
+      <div class="site-topbar-icons">
+        <a href="notifications.html" class="site-icon-btn" aria-label="Notifications"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="wa-notif-dot"></span></a>
+        <a href="messages.html" class="site-icon-btn" aria-label="Messages"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/></svg></a>
+        <a href="settings.html" class="site-icon-btn" aria-label="Settings"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"/></svg></a>
+        <a href="profile.html" class="site-avatar-link" aria-label="Your profile"><div class="wa-avatar" style="width:34px;height:34px;font-size:12px;">JM</div></a>
+      </div>
+    </header>
+<div class="site-shell no-rail">
+<aside class="site-sidebar" aria-label="Primary">
+      <a href="home.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="label">Home</span></a><a href="explore.html" class="wa-nav-item active"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span class="label">Explore</span></a><a href="communities.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5M11 20c0-3 3-5 6-5s5 2 5 5"/></svg><span class="label">Communities</span></a><a href="notifications.html" class="wa-nav-item" style="position:relative;"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="label">Notifications</span><span class="wa-notif-dot" style="position:absolute;top:9px;left:38px;"></span></a><a href="messages.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/></svg><span class="label">Messages</span></a><a href="profile.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg><span class="label">Profile</span></a>
+      <a href="home.html#compose" class="site-post-cta">New post</a>
+      <div class="site-sidebar-foot">
+        <a href="settings.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"/></svg><span class="label">Settings</span></a>
+        <a href="../index.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg><span class="label">Log out</span></a>
+      </div>
+    </aside>
+<main class="site-main" id="main">
+
+<div class="site-page-head">
+  <h1>Search</h1>
+  <p>Find people, posts, communities, topics and skills — fast.</p>
+</div>
+
+<div class="site-search-hero">
+  <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+  <input id="wa-page-search" type="text" placeholder="Try “soil sensors”, “Rhea Kapoor”, or “Type & Letterforms”" autofocus aria-label="Try “soil sensors”, “Rhea Kapoor”, or “Type & Letterforms”">
+</div>
+
+<div class="search-tabs">
+  <button class="on" data-stab="all">All</button>
+  <button data-stab="people">People</button>
+  <button data-stab="posts">Posts</button>
+  <button data-stab="communities">Communities</button>
+  <button data-stab="topics">Topics</button>
+  <button data-stab="skills">Skills</button>
+</div>
+
+<div id="wa-search-page-results">
+  <div class="search-section" data-scat="people">
+    <div class="search-section-title">People</div>
+    <div class="result-row" data-name="rhea kapoor climate sensors hardware"><div class="wa-avatar" style="width:34px;height:34px;font-size:12px;">RK</div><div><div class="name">Rhea Kapoor</div><div class="meta">Building climate sensors</div></div><button class="wa-follow-btn">Follow</button></div>
+    <div class="result-row" data-name="sanaa lund marine biologist oslo"><div class="wa-avatar" style="width:34px;height:34px;font-size:12px;">SL</div><div><div class="name">Sanaa Lund</div><div class="meta">Marine biologist · Oslo</div></div><button class="wa-follow-btn">Follow</button></div>
+  </div>
+  <div class="search-section" data-scat="communities">
+    <div class="search-section-title">Communities</div>
+    <div class="result-row" data-name="indie hardware technology"><span class="wa-dot-sq" style="background:#1B3FCC;"></span><div><div class="name">Indie Hardware</div><div class="meta">18.2k members</div></div><a href="community.html?c=hardware" class="wa-join-btn">View</a></div>
+    <div class="result-row" data-name="type and letterforms design"><span class="wa-dot-sq" style="background:#2F5DFF;"></span><div><div class="name">Type & Letterforms</div><div class="meta">9.4k members</div></div><a href="community.html?c=type" class="wa-join-btn">View</a></div>
+  </div>
+  <div class="search-section" data-scat="topics">
+    <div class="search-section-title">Topics</div>
+    <div class="result-row" data-name="soil sensors hardware topic"><span class="wa-dot-sq" style="background:var(--blue-tint);"></span><div><div class="name">#soil-sensors</div><div class="meta">312 posts this week</div></div></div>
+  </div>
+  <div class="search-section" data-scat="skills">
+    <div class="search-section-title">Skills</div>
+    <div class="result-row" data-name="product design skill"><span class="wa-dot-sq" style="background:var(--blue-tint);"></span><div><div class="name">Product Design</div><div class="meta">1.4k people</div></div></div>
+  </div>
+  <div class="search-section" data-scat="posts">
+    <div class="search-section-title">Posts</div>
+    <div class="result-row" data-name="soil moisture drift post rhea"><div style="width:34px;height:34px;border-radius:8px;background:var(--paper-soft);flex:none;"></div><div><div class="name">"Spent all night convinced I was the only one…"</div><div class="meta">Rhea Kapoor · 128 likes</div></div></div>
+  </div>
+</div>
+
+<div class="wa-empty" id="wa-search-empty" style="display:none;">
+  <div class="glyph"><svg class="ico" style="width:20px;height:20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+  <h3>Nothing found</h3>
+  <p>Try a different word, or check the spelling — search covers people, posts, communities, topics and skills.</p>
+</div>
+
+</main>
+
+</div>
+<nav class="site-mobile-nav" aria-label="Primary">
+      <a href="home.html" class=""><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+      <a href="explore.html" class="on"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span>Explore</span></a>
+      <a href="home.html#compose" class="mid" aria-label="Create post"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></a>
+      <a href="communities.html" class=""><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5M11 20c0-3 3-5 6-5s5 2 5 5"/></svg><span>Communities</span></a>
+      <a href="profile.html" class=""><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg><span>Profile</span></a>
+    </nav>
+<script src="../js/app.js"></script>
+</body>
+</html>

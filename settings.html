@@ -1,83 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Settings | WE ARE.</title>
-  <meta name="description" content="Settings - WE ARE.">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings · WE ARE.</title>
+<meta name="description" content="Account, privacy and safety settings on WE ARE.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Ccircle cx='16' cy='15' r='11' fill='%231B3FCC'/%3E%3Ccircle cx='104' cy='15' r='11' fill='%232F5DFF'/%3E%3Cpath d='M16 26 L38 78 L60 42' fill='none' stroke='%231B3FCC' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M60 42 L82 78 L104 26' fill='none' stroke='%232F5DFF' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="page-settings">
+<body class="wa">
+<a href="#main" class="skip-link">Skip to content</a>
+<header class="site-topbar">
+      <a href="home.html" class="wa-brand" style="text-decoration:none;"><svg viewBox="0 0 120 100" width="26" height="22"><circle cx="16" cy="15" r="11" fill="#1B3FCC"/><circle cx="104" cy="15" r="11" fill="#2F5DFF"/><path d="M16 26 L38 78 L60 42" fill="none" stroke="#1B3FCC" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 42 L82 78 L104 26" fill="none" stroke="#2F5DFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wordmark">WE ARE<span class="dot">.</span></span></a>
+      <div class="site-search wa-searchbar-wrap">
+        <div class="wa-searchbar">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input id="wa-search-input" type="text" placeholder="Search people, posts, communities, topics..." aria-label="Search WE ARE.">
+        </div>
+        <div class="wa-search-results" id="wa-search-results">
+          <div class="wa-search-group"><div class="wa-search-label">People</div>
+            <div class="wa-search-row"><div class="wa-avatar" style="width:26px;height:26px;font-size:10px;">SL</div><span>Sanaa Lund</span></div></div>
+          <div class="wa-search-group"><div class="wa-search-label">Communities</div>
+            <div class="wa-search-row"><span class="wa-dot-sq" style="background:#1B3FCC;"></span><span>Indie Hardware</span></div></div>
+          <div class="wa-search-group"><div class="wa-search-label">Topics</div>
+            <div class="wa-search-row"><span class="wa-dot-sq" style="background:var(--blue-tint);"></span><span>#soil-sensors</span></div></div>
+        </div>
+      </div>
+      <div class="site-topbar-icons">
+        <a href="notifications.html" class="site-icon-btn" aria-label="Notifications"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="wa-notif-dot"></span></a>
+        <a href="messages.html" class="site-icon-btn" aria-label="Messages"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/></svg></a>
+        <a href="settings.html" class="site-icon-btn" aria-label="Settings"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"/></svg></a>
+        <a href="profile.html" class="site-avatar-link" aria-label="Your profile"><div class="wa-avatar" style="width:34px;height:34px;font-size:12px;">JM</div></a>
+      </div>
+    </header>
+<div class="site-shell no-rail">
+<aside class="site-sidebar" aria-label="Primary">
+      <a href="home.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span class="label">Home</span></a><a href="explore.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span class="label">Explore</span></a><a href="communities.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5M11 20c0-3 3-5 6-5s5 2 5 5"/></svg><span class="label">Communities</span></a><a href="notifications.html" class="wa-nav-item" style="position:relative;"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span class="label">Notifications</span><span class="wa-notif-dot" style="position:absolute;top:9px;left:38px;"></span></a><a href="messages.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16v11H8l-4 4z"/></svg><span class="label">Messages</span></a><a href="profile.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg><span class="label">Profile</span></a>
+      <a href="home.html#compose" class="site-post-cta">New post</a>
+      <div class="site-sidebar-foot">
+        <a href="settings.html" class="wa-nav-item active"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6V21a2 2 0 1 1-4 0v-.2a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H3a2 2 0 1 1 0-4h.2a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.6V3a2 2 0 1 1 4 0v.2a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.6 1H21a2 2 0 1 1 0 4h-.2a1.7 1.7 0 0 0-1.5 1z"/></svg><span class="label">Settings</span></a>
+        <a href="../index.html" class="wa-nav-item"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg><span class="label">Log out</span></a>
+      </div>
+    </aside>
+<main class="site-main" id="main">
 
-  <header class="site-header app-header">
-    <div class="logo-container">
-      <a href="index.html">WE ARE.</a>
+<div class="site-page-head">
+  <h1>Settings</h1>
+  <p>Safety and privacy, built in — not bolted on.</p>
+</div>
+
+<div class="settings-layout">
+  <nav class="settings-tabs" aria-label="Settings sections">
+    <a href="#account" class="on">Account</a>
+    <a href="#privacy">Privacy</a>
+    <a href="#safety">Safety</a>
+    <a href="#data">Data</a>
+  </nav>
+
+  <div>
+    <div class="settings-card" id="account">
+      <h2>Account</h2>
+      <div class="desc">Basic account information.</div>
+      <div class="settings-row"><div class="label">Email<small>jordan@fenn.design</small></div><button class="wa-btn-secondary" style="padding:8px 16px;font-size:13px;">Change</button></div>
+      <div class="settings-row"><div class="label">Password<small>Last changed 4 months ago</small></div><button class="wa-btn-secondary" style="padding:8px 16px;font-size:13px;">Change</button></div>
+      <div class="settings-row"><div class="label">Two-factor authentication<small>Adds a code at login</small></div><span class="wa-toggle on"></span></div>
     </div>
-    <nav class="main-navigation app-navigation">
-      <ul class="nav-list">
-        <li><a href="feed.html">Feed</a></li>
-        <li><a href="discover.html">Discover</a></li>
-        <li><a href="connection.html">Connections</a></li>
-        <li><a href="message.html">Messages</a></li>
-        <li><a href="notification.html">Notifications</a></li>
-        <li><a href="create-post.html">Create Post</a></li>
-        <li><a href="profile.html">Profile</a></li>
-        <li><a href="settings.html" class="active">Settings</a></li>
-      </ul>
-    </nav>
-    <div class="header-actions">
-      <a href="notification.html" class="notifications-link">Notifications</a>
-      <a href="profile.html" class="profile-link">My Profile</a>
-      <a href="settings.html" class="settings-link">Settings</a>
+
+    <div class="settings-card" id="privacy">
+      <h2>Privacy</h2>
+      <div class="desc">Control who sees you and how they can reach you.</div>
+      <div class="settings-row"><div class="label">Private account<small>Only approved followers see your posts</small></div><span class="wa-toggle"></span></div>
+      <div class="settings-row"><div class="label">Who can comment on your posts</div>
+        <select class="settings-select"><option>Everyone</option><option selected>People you follow</option><option>No one</option></select>
+      </div>
+      <div class="settings-row"><div class="label">Who can message you</div>
+        <select class="settings-select"><option selected>Everyone</option><option>People you follow</option><option>No one</option></select>
+      </div>
+      <div class="settings-row"><div class="label">Show active status<small>Others see when you're online</small></div><span class="wa-toggle on"></span></div>
     </div>
-  </header>
 
-  <main class="page-content">
-    <section class="page-header content-section">
-      <h1 class="page-title">Settings</h1>
-    </section>
+    <div class="settings-card" id="safety">
+      <h2>Safety</h2>
+      <div class="desc">People you've blocked or muted.</div>
+      <div class="wa-profile-section-title" style="margin-top:0;">Blocked accounts</div>
+      <div class="blocked-row"><div class="wa-avatar" style="width:26px;height:26px;font-size:9px;">—</div><div class="name">No blocked accounts</div></div>
+      <div class="wa-profile-section-title">Muted accounts</div>
+      <div class="blocked-row"><div class="wa-avatar" style="width:26px;height:26px;font-size:9px;">QP</div><div class="name">quietpromo_official</div><button class="unblock-btn">Unmute</button></div>
+    </div>
 
-    <section class="settings-section content-section" id="account-settings">
-      <h2 class="section-title">Account</h2>
-      <p class="section-text">Placeholder account settings.</p>
-      <a href="edit-profile.html" class="section-link">Edit profile</a>
-    </section>
+    <div class="settings-card" id="data">
+      <h2>Data & account</h2>
+      <div class="desc">Your data belongs to you.</div>
+      <div class="settings-row"><div class="label">Download your data<small>Posts, messages, profile info</small></div><button class="wa-btn-secondary" style="padding:8px 16px;font-size:13px;">Request export</button></div>
+    </div>
 
-    <section class="settings-section content-section" id="privacy-settings">
-      <h2 class="section-title">Privacy</h2>
-      <p class="section-text">Placeholder privacy settings.</p>
-    </section>
+    <div class="settings-card settings-danger">
+      <h2>Delete account</h2>
+      <div class="desc">Permanently removes your profile, posts and messages. This can't be undone.</div>
+      <button class="btn-danger">Delete my account</button>
+    </div>
+  </div>
+</div>
 
-    <section class="settings-section content-section" id="notification-settings">
-      <h2 class="section-title">Notifications</h2>
-      <p class="section-text">Placeholder notification preferences.</p>
-    </section>
+</main>
 
-    <section class="settings-section content-section" id="security-settings">
-      <h2 class="section-title">Security</h2>
-      <p class="section-text">Placeholder security settings.</p>
-      <a href="reset-password.html" class="section-link">Change password</a>
-    </section>
-
-    <section class="settings-section content-section" id="blocked-settings">
-      <h2 class="section-title">Blocked Users</h2>
-      <p class="section-text">Manage the people you have blocked.</p>
-      <a href="blocked.html" class="section-link">View blocked users</a>
-    </section>
-  </main>
-
-  <footer class="site-footer app-footer">
-    <p class="footer-tagline">WE ARE. &mdash; You were never the only one.</p>
-    <nav class="footer-navigation">
-      <ul class="footer-links">
-        <li><a href="privacy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-        <li><a href="guidelines.html">Guidelines</a></li>
-        <li><a href="report.html">Report a Problem</a></li>
-      </ul>
+</div>
+<nav class="site-mobile-nav" aria-label="Primary">
+      <a href="home.html" class=""><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><span>Home</span></a>
+      <a href="explore.html" class=""><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><span>Explore</span></a>
+      <a href="home.html#compose" class="mid" aria-label="Create post"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></a>
+      <a href="communities.html" class=""><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="3"/><path d="M2 20c0-3 3-5 6-5s6 2 6 5M11 20c0-3 3-5 6-5s5 2 5 5"/></svg><span>Communities</span></a>
+      <a href="profile.html" class=""><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg><span>Profile</span></a>
     </nav>
-  </footer>
-
-  <script src="js/script.js"></script>
+<script src="../js/app.js"></script>
 </body>
 </html>

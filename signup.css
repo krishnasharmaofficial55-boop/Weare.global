@@ -1,0 +1,108 @@
+/* ============================================================
+   css/signup.css
+   Signup-page-only styles. This file is linked ONLY from
+   signup.html, so nothing here reaches any other page — it adds
+   to css/styles.css rather than overriding it, and intentionally
+   avoids bare element selectors (input, button, label) that could
+   leak beyond the signup form if this file is ever loaded
+   somewhere else by mistake.
+   ============================================================ */
+
+#signup-form .field-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+#signup-form .field-checkbox input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  margin-top: 2px;
+  flex: none;
+  accent-color: var(--blue);
+}
+
+#signup-form .field-checkbox label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+#signup-form .field-checkbox label a {
+  color: var(--blue-deep);
+  font-weight: 600;
+}
+
+/* inline field errors (added by signup.js) reuse .field.error from
+   styles.css for the red border; this just tightens the hint spacing
+   when both the static hint and an error hint could be present */
+#signup-form .field.error .hint {
+  margin-top: 6px;
+}
+
+/* alert / success banner above the form */
+#signup-message {
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 13.5px;
+  font-weight: 600;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+#signup-message.is-error {
+  background: #FFF3F0;
+  border: 1px solid #F2C9C0;
+  color: #C4402B;
+}
+
+#signup-message.is-success {
+  background: var(--blue-tint);
+  border: 1px solid #C9D9FF;
+  color: var(--blue-deep);
+}
+
+/* loading state on the submit button */
+#signup-submit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#signup-submit[disabled] {
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+#signup-submit .btn-spinner {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  display: none;
+  animation: signup-spin 0.7s linear infinite;
+}
+
+#signup-submit.is-loading .btn-spinner {
+  display: inline-block;
+}
+
+@keyframes signup-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #signup-submit .btn-spinner { animation: none; }
+}
+
+/* small screens: a touch more breathing room between the now-longer
+   field list and the footer switch link */
+@media (max-width: 420px) {
+  #signup-form .field { margin-top: 16px; }
+  .auth-switch { margin-top: 18px; }
+}

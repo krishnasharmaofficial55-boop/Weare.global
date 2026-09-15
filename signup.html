@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join · WE ARE.</title>
+<meta name="description" content="Create your WE ARE. account.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 100'%3E%3Ccircle cx='16' cy='15' r='11' fill='%231B3FCC'/%3E%3Ccircle cx='104' cy='15' r='11' fill='%232F5DFF'/%3E%3Cpath d='M16 26 L38 78 L60 42' fill='none' stroke='%231B3FCC' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M60 42 L82 78 L104 26' fill='none' stroke='%232F5DFF' stroke-width='16' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/signup.css">
+</head>
+<body class="wa">
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="auth-shell">
+  <div class="auth-brandside">
+    <a href="index.html" class="wa-brand" style="text-decoration:none;"><svg viewBox="0 0 120 100" width="26" height="22"><circle cx="16" cy="15" r="11" fill="#fff"/><circle cx="104" cy="15" r="11" fill="#fff" opacity="0.72"/><path d="M16 26 L38 78 L60 42" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 42 L82 78 L104 26" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" opacity="0.72"/></svg><span class="wordmark">WE ARE<span class="dot">.</span></span></a>
+    <div>
+      <p class="auth-quote">"I thought I was the only one who noticed. Turns out there were four hundred of us."</p>
+      <p class="auth-quote-src">— someone, three minutes after joining</p>
+    </div>
+    <div style="color:#8C97B5;font-size:13px;">© 2026 WE ARE.</div>
+  </div>
+  <div class="auth-formside" id="main">
+    <div class="auth-card">
+      <a href="index.html" class="wa-brand" style="text-decoration:none;"><svg viewBox="0 0 120 100" width="26" height="22"><circle cx="16" cy="15" r="11" fill="#1B3FCC"/><circle cx="104" cy="15" r="11" fill="#2F5DFF"/><path d="M16 26 L38 78 L60 42" fill="none" stroke="#1B3FCC" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M60 42 L82 78 L104 26" fill="none" stroke="#2F5DFF" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="wordmark">WE ARE<span class="dot">.</span></span></a>
+      <h1>You were never the only one.</h1>
+      <p class="sub">Create an account to start finding the others.</p>
+
+<form id="signup-form" novalidate>
+
+  <div id="signup-message" class="form-message" role="alert" aria-live="assertive" hidden></div>
+
+  <div class="field">
+    <label for="su-name">Full name</label>
+    <input id="su-name" name="full_name" type="text" placeholder="Jordan Mensah" autocomplete="name" required>
+  </div>
+
+  <div class="field">
+    <label for="su-username">Username</label>
+    <input id="su-username" name="username" type="text" placeholder="jordanbuilds" autocomplete="username"
+           minlength="3" maxlength="30" pattern="^[A-Za-z0-9_]+$" aria-describedby="su-username-hint" required>
+    <p class="hint" id="su-username-hint">3–30 characters: letters, numbers and underscores only.</p>
+  </div>
+
+  <div class="field">
+    <label for="su-email">Email</label>
+    <input id="su-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+  </div>
+
+  <div class="field">
+    <label for="su-pass">Password</label>
+    <input id="su-pass" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required>
+  </div>
+
+  <div class="field">
+    <label for="su-pass-confirm">Confirm password</label>
+    <input id="su-pass-confirm" name="password_confirm" type="password" placeholder="Re-enter your password" autocomplete="new-password" required>
+  </div>
+
+  <div class="field field-checkbox">
+    <input id="su-terms" name="terms" type="checkbox" required>
+    <label for="su-terms">I agree to the <a href="terms.html">Terms</a> and <a href="community.html">Community Guidelines</a>.</label>
+  </div>
+
+  <button type="submit" class="wa-btn-primary auth-submit" id="signup-submit">
+    <span class="btn-label">Create account</span>
+    <span class="btn-spinner" aria-hidden="true"></span>
+  </button>
+</form>
+
+      <p class="auth-switch">Already on WE ARE.? <a href="login.html">Log in</a></p>
+    </div>
+  </div>
+</div>
+<script type="module" src="js/signup.js"></script>
+</body>
+</html>
