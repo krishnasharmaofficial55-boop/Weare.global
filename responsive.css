@@ -1,0 +1,146 @@
+/* ==========================================================================
+   WE ARE. — responsive.css
+   Mobile-first breakpoints. Base rules in style.css/auth.css already
+   target small phones; this file adjusts spacing, the nav, and the
+   auth card as the viewport grows, and guards against overflow at
+   every size.
+
+   Load order: style.css → auth.css → responsive.css (this file wins
+   on any property it repeats, since it loads last).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Global overflow guard — applies at every breakpoint
+   -------------------------------------------------------------------------- */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* { min-width: 0; }
+
+/* --------------------------------------------------------------------------
+   Small phones (base / default — no media query needed)
+   e.g. 320–374px: iPhone SE, small Android phones
+   -------------------------------------------------------------------------- */
+.content-section {
+  padding: var(--space-4) var(--space-3);
+}
+
+.auth-card {
+  padding: var(--space-4) var(--space-3);
+  border-radius: var(--radius-md);
+}
+
+.page-title { font-size: 1.5rem; }
+
+.cta-button {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  font-size: 0.98rem;
+}
+
+.form-row { grid-template-columns: 1fr; }
+
+.logo-container img { height: 28px; }
+.auth-logo img { height: 40px; }
+
+/* --------------------------------------------------------------------------
+   Large phones — 375px and up
+   -------------------------------------------------------------------------- */
+@media (min-width: 375px) {
+  .content-section { padding: var(--space-5) var(--space-4); }
+  .page-title { font-size: 1.75rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Tablets — 600px and up
+   -------------------------------------------------------------------------- */
+@media (min-width: 600px) {
+  .auth-card {
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+  }
+
+  .page-title { font-size: 2rem; }
+
+  .cta-button { width: auto; }
+  .cta-button.cta-block { width: 100%; }
+
+  .form-row { grid-template-columns: 1fr 1fr; }
+
+  .logo-container img { height: 34px; }
+  .auth-logo img { height: 48px; }
+}
+
+/* --------------------------------------------------------------------------
+   Small laptops — 860px and up (nav switches from the mobile toggle
+   to the full inline navigation)
+   -------------------------------------------------------------------------- */
+@media (min-width: 860px) {
+  .nav-toggle { display: none; }
+
+  .main-navigation {
+    display: block;
+    position: static;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+  }
+
+  .main-navigation .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+    padding: 0;
+  }
+
+  .main-navigation .nav-list a {
+    padding: var(--space-1) 0;
+    border-bottom: 2px solid transparent;
+  }
+
+  .content-section { padding: var(--space-6) var(--space-5); }
+}
+
+/* --------------------------------------------------------------------------
+   Below 860px — mobile navigation (hidden until toggled open)
+   -------------------------------------------------------------------------- */
+@media (max-width: 859px) {
+  .nav-toggle { display: inline-flex; }
+
+  .main-navigation {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+    z-index: 20;
+  }
+
+  .main-navigation.is-open { display: block; }
+
+  .main-navigation .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-2) var(--space-4) var(--space-4);
+  }
+
+  .main-navigation .nav-list a {
+    display: block;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Desktop — 1024px and up
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .auth-section {
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-5);
+  }
+}
